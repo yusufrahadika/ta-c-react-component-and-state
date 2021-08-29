@@ -43,21 +43,20 @@ class App extends React.Component {
                   console.log('current state', current);
                   console.log('new value', newValue);
 
-                  return ({
+                  return {
                     ...current,
                     user: newValue,
-                  });
+                  };
                 });
               },
             }}
           >
             <>
-              {this.state.withHomePage ? (
-                <HomePage name={this.state.user.name} />
-              ) : null}
+              {this.state.withHomePage ? <HomePage /> : null}
               <button
                 onClick={() => {
                   this.setState((current) => ({
+                    ...current,
                     withHomePage: !current.withHomePage,
                   }));
                 }}
